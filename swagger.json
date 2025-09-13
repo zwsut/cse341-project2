@@ -98,29 +98,37 @@
           }
         }
       },
-      "put": {
-        "tags": [],
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
+    "put": {
+      "tags": [],
+      "description": "",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "firstName": { "example": "any" },
+              "lastName": { "example": "any" },
+              "email": { "example": "any" },
+              "favoriteColor": { "example": "any" },
+              "birthday": { "example": "any" }
+            }
           }
         }
-      },
+      ],
+      "responses": {
+        "204": { "description": "No Content" },
+        "400": { "description": "Bad Request" },
+        "404": { "description": "Not Found" }
+      }
+    },
       "delete": {
         "tags": [],
         "description": "",
