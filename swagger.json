@@ -5,7 +5,7 @@
     "description": "API for contact information",
     "version": "1.0.0"
   },
-  "host": "https://cse341-project1-vgb2.onrender.com",
+  "host": "cse341-project1-vgb2.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
