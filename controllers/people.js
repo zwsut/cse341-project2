@@ -13,10 +13,10 @@ const getAllPeople = async (req, res) => {
       .toArray();
 
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(people); // <- was sending undefined "people"
+    res.status(200).json(people);
   } catch (err) {
     console.error('getAllPeople error:', err);
-    res.status(500).json({ message: err.message }); // 500 for server error
+    res.status(500).json({ message: err.message });
   }
 };
 
@@ -61,7 +61,7 @@ const createPerson = async (req, res) => {
 
     const response = await mongodb.getDatabase().db().collection('people').insertOne(person);
     if (response.acknowledged) {
-      return res.status(201).json({ _id: response.insertedId }); // 201 Created
+      return res.status(201).json({ _id: response.insertedId });
     }
     res.status(500).json(response.error || 'Error creating person.');
   } catch (err) {
@@ -87,7 +87,6 @@ const updatePerson = async (req, res) => {
       favoriteColor: req.body.favoriteColor
     };
 
-    // was using undefined contactId/contact
     const response = await mongodb
       .getDatabase()
       .db()

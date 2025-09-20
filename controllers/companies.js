@@ -13,7 +13,7 @@ const getAllCompanies = async (req, res) => {
       .toArray();
 
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(companies); // was returning undefined "companies"
+    res.status(200).json(companies);
   } catch (err) {
     console.error('getAllCompanies error:', err);
     res.status(500).json({ message: err.message });
@@ -64,7 +64,7 @@ const createCompany = async (req, res) => {
       .getDatabase()
       .db()
       .collection('companies')
-      .insertOne(company); // was inserting "person"
+      .insertOne(company);
 
     if (response.acknowledged) {
       return res.status(201).json({ _id: response.insertedId });
