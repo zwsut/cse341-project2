@@ -1,19 +1,22 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contacts API",
-    "description": "API for contact information",
+    "title": "Employees API",
+    "description": "API for information on companies and employees",
     "version": "1.0.0"
   },
-  "host": "cse341-project1-vgb2.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
+    "http",
     "https"
   ],
   "paths": {
     "/": {
       "get": {
-        "tags": [],
+        "tags": [
+          "Hello Project 2 World"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -22,9 +25,21 @@
         }
       }
     },
-    "/contacts/": {
+    "/api-docs": {
       "get": {
-        "tags": [],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/people/": {
+      "get": {
+        "tags": [
+          "People"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -32,11 +47,16 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
       "post": {
-        "tags": [],
+        "tags": [
+          "People"
+        ],
         "description": "",
         "parameters": [
           {
@@ -51,13 +71,13 @@
                 "lastName": {
                   "example": "any"
                 },
+                "age": {
+                  "example": "any"
+                },
                 "email": {
                   "example": "any"
                 },
                 "favoriteColor": {
-                  "example": "any"
-                },
-                "birthday": {
                   "example": "any"
                 }
               }
@@ -68,15 +88,20 @@
           "204": {
             "description": "No Content"
           },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       }
     },
-    "/contacts/{id}": {
+    "/people/{id}": {
       "get": {
-        "tags": [],
+        "tags": [
+          "People"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -90,47 +115,73 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "People"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "age": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "favoriteColor": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
           "204": {
             "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
-    "put": {
-      "tags": [],
-      "description": "",
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "type": "string"
-        },
-        {
-          "name": "body",
-          "in": "body",
-          "schema": {
-            "type": "object",
-            "properties": {
-              "firstName": { "example": "any" },
-              "lastName": { "example": "any" },
-              "email": { "example": "any" },
-              "favoriteColor": { "example": "any" },
-              "birthday": { "example": "any" }
-            }
-          }
-        }
-      ],
-      "responses": {
-        "204": { "description": "No Content" },
-        "400": { "description": "Bad Request" },
-        "404": { "description": "Not Found" }
-      }
-    },
       "delete": {
-        "tags": [],
+        "tags": [
+          "People"
+        ],
         "description": "",
         "parameters": [
           {
@@ -141,8 +192,189 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/companies/": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Companies"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "industry": {
+                  "example": "any"
+                },
+                "foundedYear": {
+                  "example": "any"
+                },
+                "employees": {
+                  "example": "any"
+                },
+                "headquarters": {
+                  "example": "any"
+                },
+                "website": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/companies/{id}": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Companies"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "industry": {
+                  "example": "any"
+                },
+                "foundedYear": {
+                  "example": "any"
+                },
+                "employees": {
+                  "example": "any"
+                },
+                "headquarters": {
+                  "example": "any"
+                },
+                "website": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Companies"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
