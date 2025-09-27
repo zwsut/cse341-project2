@@ -1,4 +1,3 @@
-// middleware/authenticate.js
 const isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated && req.isAuthenticated()) return next();
   if (req.user) return next();
