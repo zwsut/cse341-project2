@@ -28,7 +28,8 @@ const saveCompany = (req, res, next) => {
     foundedYear: 'required|integer',
     employees: 'required|integer',
     headquarters: 'required|string',
-    website: 'string'
+    website: 'string',
+    ceo: 'string'
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {

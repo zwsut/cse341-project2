@@ -15,7 +15,7 @@
       "get": {
         "tags": [
           "Authentication"
-        ],        
+        ],          
         "description": "",
         "responses": {
           "default": {
@@ -28,7 +28,7 @@
       "get": {
         "tags": [
           "Authentication"
-        ],
+        ],  
         "description": "",
         "responses": {
           "default": {
@@ -173,7 +173,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Update Successful"
           },
           "400": {
             "description": "Bad Request"
@@ -204,7 +204,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Delete Successful"
           },
           "400": {
             "description": "Bad Request"
@@ -267,6 +267,9 @@
                   "example": "any"
                 },
                 "website": {
+                  "example": "any"
+                },
+                "ceo": {
                   "example": "any"
                 }
               }
@@ -356,6 +359,9 @@
                 },
                 "website": {
                   "example": "any"
+                },
+                "ceo": {
+                  "example": "any"
                 }
               }
             }
@@ -363,7 +369,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Update Successful"
           },
           "400": {
             "description": "Bad Request"
@@ -394,7 +400,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Deletion Successful"
           },
           "400": {
             "description": "Bad Request"

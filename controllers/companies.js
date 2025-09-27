@@ -57,7 +57,8 @@ const createCompany = async (req, res) => {
       foundedYear: req.body.foundedYear,
       employees: req.body.employees,
       headquarters: req.body.headquarters,
-      website: req.body.website
+      website: req.body.website,
+      ceo: req.body.ceo
     };
 
     const response = await mongodb
@@ -90,7 +91,8 @@ const updateCompany = async (req, res) => {
       foundedYear: req.body.foundedYear,
       employees: req.body.employees,
       headquarters: req.body.headquarters,
-      website: req.body.website
+      website: req.body.website,
+      ceo: req.body.ceo
     };
 
     const response = await mongodb
