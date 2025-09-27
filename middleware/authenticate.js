@@ -1,10 +1,10 @@
+// middleware/authenticate.js
 const isAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated?.() || req.user || (req.session && req.session.user)) {
-    return res.status(401).json({ message: 'You do not have access.' });
-  }
-    next();
+  if (req.isAuthenticated && req.isAuthenticated()) return next();
+  if (req.user) return next();
+  if (req.session && req.session.user) return next();
+
+  return res.status(401).json({ message: 'You do not have access.' });
 };
 
-module.exports = {
-    isAuthenticated
-};
+module.exports = { isAuthenticated };
